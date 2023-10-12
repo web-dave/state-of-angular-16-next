@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HoverDirective } from '../hover.directive';
 
@@ -11,8 +11,12 @@ import { HoverDirective } from '../hover.directive';
   hostDirectives: [
     {
       directive: HoverDirective,
-      inputs: ['appHover: hover'],
+      inputs: ['appHover'],
     },
   ],
 })
-export class TitleComponent {}
+export class TitleComponent implements OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('==>', changes);
+  }
+}
