@@ -11,13 +11,19 @@
 <hr />
 <h5>_{{ input | json }}_</h5>
 <hr />
-} &#64;if mit checkbox <br />
+}
+<br />
+
+&#64;if mit checkbox <br />
 <input type="checkbox" #check (change)="foo = check.checked" />
-@if(check.checked){ JA } @else{ Nein } &#64;switch <br />
+@if(check.checked){ JA } @else{ Nein }
+<br />
+
+&#64;switch <br />
 <button (click)="ping()">{{ value }}</button>
 @switch(value){ @case(1){
 <h2>ONE</h2>
-} @case(2){
+} @case(2) {
 <h3>TWO</h3>
 } @default{
 <h4>Meeeh</h4>
@@ -35,16 +41,27 @@
   {{ itm.name }}
 </div>
 
+&#64;defer on immediate <br />
+@defer(on immediate){
+<button>ich mach nix!</button>
+}
+<br />
+
 &#64;defer on Viewport <br />
 <h1 #viewporttrigger>Moin</h1>
 @defer(on viewport(viewporttrigger)){
 <lazy-one />
-} &#64;defer on hover <br />
+}
+<br />
+
+&#64;defer on hover mit placeholder <br />
 <h1 #hovertrigger>Moin</h1>
 @defer(on hover(hovertrigger)){
 <lazy-two />
+}@placeholder(){ Muh }
+<br />
 
 &#64;defer on timer <br />
-} @defer(on timer(3s)){
+@defer(on timer(3s)){
 <lazy-three />
 }
